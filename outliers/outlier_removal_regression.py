@@ -30,16 +30,8 @@ ages_train, ages_test, net_worths_train, net_worths_test = train_test_split(ages
 from sklearn.linear_model import LinearRegression
 
 reg = LinearRegression()
-
 reg.fit(ages_train, net_worths_train)
-
-print(reg.coef_)
-
-print(reg.score(ages_test, net_worths_test))
-
-
-
-
+predictions = reg.predict(ages_train)
 
 
 try:
@@ -47,6 +39,7 @@ try:
 except NameError:
     pass
 plt.scatter(ages, net_worths)
+print("Showing regression prediction on data")
 plt.show()
 
 
@@ -82,6 +75,7 @@ if len(cleaned_data) > 0:
     plt.scatter(ages, net_worths)
     plt.xlabel("ages")
     plt.ylabel("net worths")
+    print("Showing regression prediction on cleaned data (-10% outliers)")
     plt.show()
 
 
